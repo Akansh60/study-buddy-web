@@ -15,9 +15,9 @@ load_dotenv()
 # ─────────────────────────────────────────────
 app = Flask(__name__)
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-chroma_client = chromadb.PersistentClient(path="./notes_db")
+# Replace PersistentClient with in-memory client
+chroma_client = chromadb.Client()
 collection = chroma_client.get_or_create_collection(name="physics_notes")
-
 
 # ─────────────────────────────────────────────
 # CORE FUNCTIONS (same logic as terminal app)
@@ -196,4 +196,5 @@ def notes_count():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
