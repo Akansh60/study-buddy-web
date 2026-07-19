@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+notes_db/
+*.sqlite3
+.DS_Store

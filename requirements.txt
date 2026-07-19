@@ -1,0 +1,7 @@
+flask
+groq
+chromadb
+duckduckgo-search
+python-dotenv
+pymupdf
+gunicorn

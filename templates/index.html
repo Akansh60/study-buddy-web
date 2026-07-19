@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Physics Study Buddy</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- ── HEADER ── -->
+    <div class="header">
+        <h1>⚡ Physics Study Buddy</h1>
+        <p>Your personal AI tutor — powered by your notes + web search</p>
+        <span class="notes-badge">
+            📚 <span id="notes-count">{{ notes_count }}</span> notes stored
+        </span>
+    </div>
+
+    <div class="container">
+
+        <!-- ── LEFT PANEL — Add Notes ── -->
+        <div class="panel left-panel">
+            <h2>📝 Add Your Notes</h2>
+            <p class="hint">Paste your physics notes below — AI will learn from them</p>
+
+            <textarea
+                id="notes-input"
+                placeholder="Paste your physics notes here...
+
+Example:
+Newton's first law states that an object remains at rest unless acted upon by external force.
+Force equals mass times acceleration F=ma.
+Energy cannot be created or destroyed..."
+            ></textarea>
+
+            <button id="add-notes-btn" onclick="addNotes()">
+                💾 Save Notes
+            </button>
+
+            <div id="notes-message" class="message hidden"></div>
+        </div>
+
+        <!-- ── RIGHT PANEL — Chat ── -->
+        <div class="panel right-panel">
+            <h2>💬 Ask a Question</h2>
+            <p class="hint">Ask anything — searches your notes + web automatically</p>
+
+            <!-- Chat history -->
+            <div id="chat-box">
+                <div class="welcome-message">
+                    👋 Hello! Add your physics notes on the left,
+                    then ask me anything about physics here!
+                </div>
+            </div>
+
+            <!-- Input area -->
+            <div class="input-area">
+                <input
+                    type="text"
+                    id="question-input"
+                    placeholder="Ask a physics question..."
+                    onkeypress="handleEnter(event)"
+                />
+                <button onclick="askQuestion()">Ask →</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
